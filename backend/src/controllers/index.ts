@@ -29,3 +29,5 @@ export * from './user.controller';
 export * from './user-property.controller';
 export * from './property-user.controller';
 export * from './property-area.controller';
+export * from './user-management.controller';
+export * from './management-user.controller';
