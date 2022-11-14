@@ -42,7 +42,7 @@ export class PropertyUserController {
     @param.path.string('id') id: string,
     @param.query.object('filter') filter?: Filter<User>,
   ): Promise<User[]> {
-    return this.propertyRepository.users(id).find(filter);
+    return this.propertyRepository.Habitantes(id).find(filter);
   }
 
   @post('/properties/{id}/users', {
@@ -67,7 +67,7 @@ export class PropertyUserController {
       },
     }) user: Omit<User, 'id'>,
   ): Promise<User> {
-    return this.propertyRepository.users(id).create(user);
+    return this.propertyRepository.Habitantes(id).create(user);
   }
 
   @patch('/properties/{id}/users', {
@@ -90,7 +90,7 @@ export class PropertyUserController {
     user: Partial<User>,
     @param.query.object('where', getWhereSchemaFor(User)) where?: Where<User>,
   ): Promise<Count> {
-    return this.propertyRepository.users(id).patch(user, where);
+    return this.propertyRepository.Habitantes(id).patch(user, where);
   }
 
   @del('/properties/{id}/users', {
@@ -105,6 +105,6 @@ export class PropertyUserController {
     @param.path.string('id') id: string,
     @param.query.object('where', getWhereSchemaFor(User)) where?: Where<User>,
   ): Promise<Count> {
-    return this.propertyRepository.users(id).delete(where);
+    return this.propertyRepository.Habitantes(id).delete(where);
   }
 }

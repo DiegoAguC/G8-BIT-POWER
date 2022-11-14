@@ -26,3 +26,6 @@ export * from './property.controller';
 export * from './role.controller';
 export * from './section.controller';
 export * from './user.controller';
+export * from './user-property.controller';
+export * from './property-user.controller';
+export * from './property-area.controller';
