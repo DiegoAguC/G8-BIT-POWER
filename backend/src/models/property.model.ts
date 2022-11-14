@@ -1,8 +1,9 @@
 import {belongsTo, Entity, hasMany, model, property} from '@loopback/repository';
+import {Area} from './area.model';
 import {Invoice} from './invoice.model';
 import {PropertyTypes} from './PropertyTypes.enum';
 import {Section} from './section.model';
-
+import {User} from './user.model';
 
 // enum PropertyTypes {
 //   apartment,
@@ -35,10 +36,19 @@ export class Property extends Entity {
   })
   type: PropertyTypes;
 
+  @belongsTo(() => User)
+  ownerId: string;
+
+  @hasMany(() => User)
+  Habitantes: User[];
+
+  @hasMany(() => Area)
+  areas: Area[];
   @property({
     type: 'string',
   })
-  userId?: string;
+  residentId?: string;
+
   @property({
     type: 'number',
     required: true,
@@ -56,13 +66,6 @@ export class Property extends Entity {
   //   required: true,
   // })
   // managementId: string;
-
-  @property({
-    type: 'string',
-    required: true,
-  })
-  ownerId: string;
-
   // @property({
   //   type: 'string',
   //   required: true,

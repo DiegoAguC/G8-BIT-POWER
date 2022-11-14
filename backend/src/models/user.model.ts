@@ -84,6 +84,11 @@ export class User extends Entity {
   // @property({
   @hasMany(() => Property)
   properties: Property[];
+
+  @property({
+    type: 'string',
+  })
+  propertyId?: string;
   //   type: 'string',
   //   required: true,
   // })

@@ -60,8 +60,7 @@ export class UserPropertyController {
         'application/json': {
           schema: getModelSchemaRef(Property, {
             title: 'NewPropertyInUser',
-            exclude: ['id'],
-            optional: ['userId']
+            exclude: ['id']
           }),
         },
       },
