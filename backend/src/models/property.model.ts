@@ -36,6 +36,10 @@ export class Property extends Entity {
   type: PropertyTypes;
 
   @property({
+    type: 'string',
+  })
+  userId?: string;
+  @property({
     type: 'number',
     required: true,
   })

@@ -1,6 +1,6 @@
 import {Entity, model, property, hasMany} from '@loopback/repository';
 import {Role} from './role.model';
-
+import {Property} from './property.model';
 
 @model()
 export class User extends Entity {
@@ -80,7 +80,10 @@ export class User extends Entity {
   })
   state: boolean;
 
+
   // @property({
+  @hasMany(() => Property)
+  properties: Property[];
   //   type: 'string',
   //   required: true,
   // })

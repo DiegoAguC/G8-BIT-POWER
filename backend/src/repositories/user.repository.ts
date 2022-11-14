@@ -1,8 +1,10 @@
 <<<<<<< HEAD
-import {inject} from '@loopback/core';
-import {DefaultCrudRepository} from '@loopback/repository';
+import {inject, Getter} from '@loopback/core';
+import {DefaultCrudRepository, repository, HasManyRepositoryFactory} from '@loopback/repository';
 import {MongodbDataSource} from '../datasources';
-import {User, UserRelations} from '../models';
+import {User, UserRelations, Property} from '../models';
+import {PropertyRepository} from './property.repository';
+
 =======
 import {inject, Getter} from '@loopback/core';
 import {DefaultCrudRepository, repository, HasManyRepositoryFactory} from '@loopback/repository';
@@ -16,11 +18,16 @@ export class UserRepository extends DefaultCrudRepository<
   typeof User.prototype.id,
   UserRelations
 > {
+
+  public readonly properties: HasManyRepositoryFactory<Property, typeof User.prototype.id>;
+
 <<<<<<< HEAD
   constructor(
-    @inject('datasources.mongodb') dataSource: MongodbDataSource,
+    @inject('datasources.mongodb') dataSource: MongodbDataSource, @repository.getter('PropertyRepository') protected propertyRepositoryGetter: Getter<PropertyRepository>,
   ) {
     super(User, dataSource);
+    this.properties = this.createHasManyRepositoryFactoryFor('properties', propertyRepositoryGetter,);
+    this.registerInclusionResolver('properties', this.properties.inclusionResolver);
 =======
 
   public readonly roles: HasManyRepositoryFactory<Role, typeof User.prototype.id>;
