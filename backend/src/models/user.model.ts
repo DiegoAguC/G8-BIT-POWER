@@ -1,6 +1,7 @@
-import {Entity, model, property, hasMany} from '@loopback/repository';
+import {Entity, model, property, hasMany, hasOne} from '@loopback/repository';
 import {Role} from './role.model';
 import {Property} from './property.model';
+import {Management} from './management.model';
 
 @model()
 export class User extends Entity {
@@ -89,6 +90,9 @@ export class User extends Entity {
     type: 'string',
   })
   propertyId?: string;
+
+  @hasOne(() => Management, {keyTo: 'managerId'})
+  management: Management;
   //   type: 'string',
   //   required: true,
   // })
