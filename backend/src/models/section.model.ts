@@ -1,15 +1,8 @@
-<<<<<<< HEAD
-import {belongsTo, Entity, hasMany, model, property} from '@loopback/repository';
-import {Management} from './management.model';
-import {Property} from './property.model';
-
-=======
 import {Entity, model, property, belongsTo, hasMany} from '@loopback/repository';
 import {Management} from './management.model';
 import {Property} from './property.model';
 
 
->>>>>>> 1-dev-ds-dot-env
 @model()
 export class Section extends Entity {
   @property({
@@ -27,11 +20,6 @@ export class Section extends Entity {
 
   @property({
     type: 'string',
-<<<<<<< HEAD
-    required: true,
-  })
-  description: string;
-=======
   })
   description?: string;
 
@@ -40,7 +28,6 @@ export class Section extends Entity {
   //   type: 'string',
   // })
   // managementId: string;
->>>>>>> 1-dev-ds-dot-env
 
   @belongsTo(() => Management)
   managementId: string;

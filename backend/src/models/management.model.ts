@@ -1,10 +1,6 @@
 import {Entity, model, property, hasMany} from '@loopback/repository';
 import {Section} from './section.model';
 
-<<<<<<< HEAD
-=======
-
->>>>>>> 1-dev-ds-dot-env
 @model()
 export class Management extends Entity {
   @property({
@@ -66,11 +62,7 @@ export class Management extends Entity {
     type: 'string',
     required: true,
   })
-<<<<<<< HEAD
-  userId: string;
-=======
   managerId: string;
->>>>>>> 1-dev-ds-dot-env
 
   @hasMany(() => Section)
   sections: Section[];
