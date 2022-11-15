@@ -34,9 +34,6 @@ export class Role extends Entity {
   })
   role: RolesList;
 
-  @belongsTo(() => User)
-  userId: string;
-
   constructor(data?: Partial<Role>) {
     super(data);
   }

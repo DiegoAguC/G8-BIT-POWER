@@ -10,13 +10,9 @@ export class RoleRepository extends DefaultCrudRepository<
   RoleRelations
 > {
 
-  public readonly user: BelongsToAccessor<User, typeof Role.prototype.id>;
-
   constructor(
     @inject('datasources.mongodb') dataSource: MongodbDataSource, @repository.getter('UserRepository') protected userRepositoryGetter: Getter<UserRepository>,
   ) {
     super(Role, dataSource);
-    this.user = this.createBelongsToAccessorFor('user', userRepositoryGetter,);
-    this.registerInclusionResolver('user', this.user.inclusionResolver);
   }
 }

@@ -6,3 +6,4 @@ export * from './property.repository';
 export * from './role.repository';
 export * from './section.repository';
 export * from './user.repository';
+export * from './usuarios-x-roles.repository';
