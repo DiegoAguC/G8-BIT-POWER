@@ -5,7 +5,7 @@ import {
   repository,
   Where,
 } from '@loopback/repository';
-import {
+  import {
   del,
   get,
   getModelSchemaRef,
@@ -16,8 +16,9 @@ import {
   requestBody,
 } from '@loopback/rest';
 import {
-  User,
-  Role,
+User,
+UsuariosXRoles,
+Role,
 } from '../models';
 import {UserRepository} from '../repositories';
 
@@ -29,7 +30,7 @@ export class UserRoleController {
   @get('/users/{id}/roles', {
     responses: {
       '200': {
-        description: 'Array of User has many Role',
+        description: 'Array of User has many Role through UsuariosXRoles',
         content: {
           'application/json': {
             schema: {type: 'array', items: getModelSchemaRef(Role)},
@@ -48,7 +49,7 @@ export class UserRoleController {
   @post('/users/{id}/roles', {
     responses: {
       '200': {
-        description: 'User model instance',
+        description: 'create a Role model instance',
         content: {'application/json': {schema: getModelSchemaRef(Role)}},
       },
     },
@@ -61,7 +62,6 @@ export class UserRoleController {
           schema: getModelSchemaRef(Role, {
             title: 'NewRoleInUser',
             exclude: ['id'],
-            optional: ['userId']
           }),
         },
       },

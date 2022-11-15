@@ -6,3 +6,4 @@ export * from './property.model';
 export * from './area.model';
 export * from './invoice.model';
 export * from './payment.model';
+export * from './usuarios-x-roles.model';

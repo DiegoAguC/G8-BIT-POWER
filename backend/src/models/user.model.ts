@@ -2,6 +2,7 @@ import {Entity, model, property, hasMany, hasOne} from '@loopback/repository';
 import {Role} from './role.model';
 import {Property} from './property.model';
 import {Management} from './management.model';
+import {UsuariosXRoles} from './usuarios-x-roles.model';
 
 @model()
 export class User extends Entity {
@@ -91,15 +92,14 @@ export class User extends Entity {
   })
   propertyId?: string;
 
+  @hasMany(() => Role, {through: {model: () => UsuariosXRoles}})
+  roles: Role[];
   @hasOne(() => Management, {keyTo: 'managerId'})
   management: Management;
   //   type: 'string',
   //   required: true,
   // })
   // propertyId: string;
-
-  @hasMany(() => Role)
-  roles: Role[];
 
   constructor(data?: Partial<User>) {
     super(data);
